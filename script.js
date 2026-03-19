@@ -42,23 +42,35 @@ document.addEventListener('DOMContentLoaded', () => {
     woodRail.setAttribute('aria-hidden', 'true');
     woodRail.innerHTML = `
       <div class="wood-rail__track">
-        <span class="wood-rail__slat" style="--top: 0%; --height: 18%; --width: 100%; --factor: 0.03; --opacity: 0.6;"></span>
-        <span class="wood-rail__slat" style="--top: 14%; --height: 12%; --width: 74%; --factor: -0.02; --opacity: 0.72;"></span>
-        <span class="wood-rail__slat" style="--top: 31%; --height: 19%; --width: 92%; --factor: 0.05; --opacity: 0.66;"></span>
-        <span class="wood-rail__slat" style="--top: 50%; --height: 14%; --width: 68%; --factor: -0.035; --opacity: 0.74;"></span>
-        <span class="wood-rail__slat" style="--top: 64%; --height: 21%; --width: 100%; --factor: 0.04; --opacity: 0.68;"></span>
-        <span class="wood-rail__slat" style="--top: 84%; --height: 11%; --width: 80%; --factor: -0.025; --opacity: 0.62;"></span>
+        <span class="wood-rail__slat" data-factor="0.18" data-phase="0.0" style="--top: 0%; --height: 18%; --width: 100%; --opacity: 0.56;"></span>
+        <span class="wood-rail__slat" data-factor="-0.14" data-phase="0.9" style="--top: 14%; --height: 12%; --width: 74%; --opacity: 0.7;"></span>
+        <span class="wood-rail__slat" data-factor="0.24" data-phase="1.8" style="--top: 31%; --height: 19%; --width: 92%; --opacity: 0.64;"></span>
+        <span class="wood-rail__slat" data-factor="-0.2" data-phase="2.8" style="--top: 50%; --height: 14%; --width: 68%; --opacity: 0.72;"></span>
+        <span class="wood-rail__slat" data-factor="0.22" data-phase="3.6" style="--top: 64%; --height: 21%; --width: 100%; --opacity: 0.66;"></span>
+        <span class="wood-rail__slat" data-factor="-0.12" data-phase="4.2" style="--top: 84%; --height: 11%; --width: 80%; --opacity: 0.58;"></span>
       </div>
     `;
     document.body.appendChild(woodRail);
 
     if (!reduceMotion) {
+      const slats = Array.from(woodRail.querySelectorAll('.wood-rail__slat'));
       let ticking = false;
 
       const updateWoodRail = () => {
         const scrollRange = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
         const progress = window.scrollY / scrollRange;
-        woodRail.style.setProperty('--wood-progress', `${(progress - 0.5) * 120}px`);
+
+        slats.forEach((slat) => {
+          const factor = Number.parseFloat(slat.dataset.factor || '0');
+          const phase = Number.parseFloat(slat.dataset.phase || '0');
+          const y = (progress - 0.5) * 220 * factor;
+          const x = Math.sin(progress * 8 + phase) * 3.5;
+          const rotate = Math.sin(progress * 6 + phase) * 1.2 * factor;
+          const opacity = Math.max(0.46, Math.min(0.9, 0.64 + Math.sin(progress * 7 + phase) * 0.08));
+          slat.style.transform = `translate3d(${x}px, ${y}px, 0) rotate(${rotate}deg)`;
+          slat.style.opacity = opacity.toFixed(3);
+        });
+
         ticking = false;
       };
 
