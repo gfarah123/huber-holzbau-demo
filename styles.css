@@ -12,11 +12,7 @@
   --primary-deep: #1f5e2d;
   --accent: #80a46c;
   --accent-soft: rgba(45, 127, 62, 0.12);
-  --wood-light: rgba(203, 185, 152, 0.18);
-  --wood-mid: rgba(150, 118, 78, 0.08);
-  --wood-line: rgba(113, 88, 58, 0.08);
   --shadow: 0 20px 48px rgba(21, 54, 30, 0.12);
-  --shadow-wood: 0 18px 38px rgba(91, 72, 46, 0.08);
   --radius-xl: 34px;
   --radius-lg: 28px;
   --radius-md: 22px;
@@ -38,10 +34,8 @@ body {
   font-family: "Manrope", "Segoe UI", sans-serif;
   color: var(--text);
   background:
-    repeating-linear-gradient(90deg, transparent 0 54px, rgba(113, 88, 58, 0.024) 54px 56px),
-    repeating-linear-gradient(180deg, transparent 0 80px, rgba(113, 88, 58, 0.016) 80px 81px),
     radial-gradient(circle at top left, rgba(128, 164, 108, 0.12), transparent 28%),
-    linear-gradient(180deg, #fbfcfa 0%, var(--bg) 100%);
+    linear-gradient(180deg, #f8fbf8 0%, var(--bg) 100%);
   line-height: 1.65;
 }
 
@@ -66,21 +60,9 @@ h2,
 h3,
 h4 {
   margin: 0;
-  line-height: 1.05;
-}
-
-h1,
-h2 {
-  font-family: "DM Serif Display", "Georgia", serif;
-  font-weight: 400;
-  letter-spacing: -0.03em;
-}
-
-h3,
-h4 {
-  font-family: "Manrope", "Segoe UI", sans-serif;
   font-weight: 800;
   letter-spacing: -0.04em;
+  line-height: 1.05;
 }
 
 .container {
@@ -93,22 +75,9 @@ h4 {
 }
 
 .section-alt {
-  position: relative;
-  isolation: isolate;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(239, 246, 240, 0.9));
   border-top: 1px solid rgba(255, 255, 255, 0.75);
   border-bottom: 1px solid rgba(23, 49, 32, 0.06);
-}
-
-.section-alt::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background:
-    repeating-linear-gradient(90deg, transparent 0 92px, rgba(113, 88, 58, 0.028) 92px 94px),
-    repeating-linear-gradient(180deg, transparent 0 72px, rgba(113, 88, 58, 0.016) 72px 73px);
-  pointer-events: none;
 }
 
 .section-title {
@@ -149,12 +118,9 @@ h4 {
   top: 0;
   z-index: 50;
   padding: 0.85rem 0;
-  background:
-    linear-gradient(180deg, rgba(248, 251, 248, 0.96), rgba(239, 246, 240, 0.88)),
-    repeating-linear-gradient(90deg, transparent 0 40px, rgba(113, 88, 58, 0.03) 40px 42px);
+  background: rgba(248, 251, 248, 0.9);
   border-bottom: 1px solid rgba(23, 49, 32, 0.08);
   backdrop-filter: blur(20px);
-  box-shadow: 0 12px 30px rgba(21, 54, 30, 0.05);
 }
 
 .nav-shell {
@@ -244,24 +210,7 @@ main {
 
 .hero,
 .page-hero {
-  position: relative;
-  isolation: isolate;
   padding: clamp(3rem, 6vw, 5.5rem) 0 var(--section-space);
-}
-
-.hero::before,
-.page-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background:
-    radial-gradient(circle at 10% 16%, rgba(128, 164, 108, 0.2), transparent 20%),
-    radial-gradient(circle at 88% 12%, rgba(203, 185, 152, 0.18), transparent 18%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(237, 244, 238, 0.42)),
-    repeating-linear-gradient(90deg, transparent 0 84px, rgba(113, 88, 58, 0.026) 84px 86px);
-  border-bottom: 1px solid rgba(23, 49, 32, 0.06);
-  pointer-events: none;
 }
 
 .hero-grid,
@@ -432,11 +381,8 @@ textarea {
   overflow: hidden;
   border: 1px solid rgba(23, 49, 32, 0.09);
   border-radius: var(--radius-md);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(244, 248, 243, 0.86)),
-    repeating-linear-gradient(90deg, transparent 0 58px, rgba(113, 88, 58, 0.022) 58px 60px),
-    repeating-linear-gradient(180deg, transparent 0 82px, rgba(113, 88, 58, 0.014) 82px 83px);
-  box-shadow: var(--shadow), var(--shadow-wood);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: var(--shadow);
 }
 
 .service-card,
@@ -484,7 +430,6 @@ textarea {
 .hero-stats strong,
 .metric-card strong {
   display: block;
-  font-family: "DM Serif Display", "Georgia", serif;
   font-size: 1.55rem;
 }
 
@@ -588,10 +533,7 @@ textarea {
   gap: 0.42rem;
   padding: 0.4rem 0.75rem;
   border-radius: 999px;
-  background:
-    linear-gradient(135deg, rgba(236, 242, 233, 0.96), rgba(242, 233, 215, 0.78)),
-    var(--accent-soft);
-  border: 1px solid rgba(45, 127, 62, 0.12);
+  background: var(--accent-soft);
   color: var(--primary-deep);
   font-size: 0.82rem;
   font-weight: 800;
@@ -710,10 +652,7 @@ textarea {
   align-items: stretch;
   padding: 2rem;
   border-radius: var(--radius-xl);
-  background:
-    radial-gradient(circle at 14% 18%, rgba(203, 185, 152, 0.16), transparent 22%),
-    radial-gradient(circle at 88% 14%, rgba(128, 164, 108, 0.18), transparent 24%),
-    linear-gradient(135deg, rgba(21, 54, 30, 0.98), rgba(36, 97, 49, 0.96));
+  background: linear-gradient(135deg, rgba(21, 54, 30, 0.98), rgba(36, 97, 49, 0.96));
   color: #fff;
   box-shadow: var(--shadow);
 }
@@ -873,9 +812,7 @@ textarea {
 
 .site-footer {
   padding: 2.8rem 0 2rem;
-  background:
-    linear-gradient(180deg, rgba(18, 49, 27, 0.98), rgba(14, 38, 21, 1)),
-    repeating-linear-gradient(90deg, transparent 0 48px, rgba(203, 185, 152, 0.03) 48px 50px);
+  background: #12311b;
   color: rgba(255, 255, 255, 0.82);
 }
 
