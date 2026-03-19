@@ -286,23 +286,6 @@ main {
   padding: clamp(3rem, 6vw, 5.5rem) 0 var(--section-space);
 }
 
-.home-showcase {
-  padding: 1.4rem 0 0;
-}
-
-.home-showcase__frame {
-  overflow: hidden;
-  border-radius: calc(var(--radius-xl) + 6px);
-  box-shadow: var(--shadow);
-  background: rgba(255, 255, 255, 0.84);
-}
-
-.home-showcase__image {
-  min-height: clamp(360px, 56vw, 760px);
-  background-size: cover;
-  background-position: center;
-}
-
 .hero-grid,
 .page-hero-grid,
 .about-grid,
@@ -335,10 +318,6 @@ main {
 .feature-split {
   grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
   align-items: center;
-}
-
-.hero-grid--single {
-  grid-template-columns: 1fr;
 }
 
 .cards-2,
