@@ -202,6 +202,15 @@ h4 {
   position: relative;
 }
 
+.nav-item--submenu::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 0.9rem;
+}
+
 .nav-item--submenu > a {
   display: inline-flex;
   align-items: center;
@@ -219,13 +228,14 @@ h4 {
 }
 
 .nav-item--submenu:hover > a::after,
-.nav-item--submenu:focus-within > a::after {
+.nav-item--submenu:focus-within > a::after,
+.nav-item--submenu.is-open > a::after {
   transform: rotate(225deg) translateY(-1px);
 }
 
 .nav-dropdown {
   position: absolute;
-  top: calc(100% + 0.55rem);
+  top: calc(100% + 0.18rem);
   left: 0;
   min-width: 260px;
   display: grid;
@@ -242,7 +252,8 @@ h4 {
 }
 
 .nav-item--submenu:hover .nav-dropdown,
-.nav-item--submenu:focus-within .nav-dropdown {
+.nav-item--submenu:focus-within .nav-dropdown,
+.nav-item--submenu.is-open .nav-dropdown {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0);
