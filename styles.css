@@ -673,6 +673,28 @@ textarea {
   line-height: 1.28;
 }
 
+.contact-list--aligned li {
+  display: grid;
+  grid-template-columns: 0.7rem minmax(11rem, 13.5rem) minmax(0, 1fr);
+  column-gap: 1rem;
+  align-items: baseline;
+}
+
+.contact-list--aligned li::before {
+  grid-column: 1;
+}
+
+.contact-list--aligned .contact-person {
+  display: block;
+  grid-column: 2;
+}
+
+.contact-list--aligned a {
+  grid-column: 3;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
 .check-list li::before,
 .service-points li::before,
 .contact-list li::before,
@@ -1141,5 +1163,15 @@ textarea {
   .footer-address {
     text-align: left;
     justify-items: start;
+  }
+
+  .contact-list--aligned li {
+    grid-template-columns: 0.7rem 1fr;
+    row-gap: 0.18rem;
+  }
+
+  .contact-list--aligned .contact-person,
+  .contact-list--aligned a {
+    grid-column: 2;
   }
 }
